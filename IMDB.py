@@ -31,7 +31,7 @@ nltk.download('stopwords')
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 corpus = []                                                                         #Any kind of text generally called corpus
-for i in range(0,len(data)):
+for i in range(0,len(training_data)):
     review = re.sub('[^a-zA-Z]',' ',training_data['review'][i])                                  #Removing all the characters except a to z
     review = review.lower()                                                             #Converting Capital Letters into lower case
     review = review.split()                                                             #Splitting sentence into individual words
