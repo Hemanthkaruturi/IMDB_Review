@@ -30,14 +30,14 @@ import nltk
 nltk.download('stopwords')
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
-corpus = []                                                                         #Any kind of text generally called corpus
+corpus = []                                                                #Any kind of text generally called corpus
 for i in range(0,len(training_data)):
-    review = re.sub('[^a-zA-Z]',' ',training_data['review'][i])                                  #Removing all the characters except a to z
-    review = review.lower()                                                             #Converting Capital Letters into lower case
-    review = review.split()                                                             #Splitting sentence into individual words
-    ps = PorterStemmer()                                                                #Stemming   (love = loved, loving, lovable, lover, lovely, ...)
+    review = re.sub('[^a-zA-Z]',' ',training_data['review'].iloc[i])       #Removing all the characters except a to z
+    review = review.lower()                                                #Converting Capital Letters into lower case
+    review = review.split()                                                #Splitting sentence into individual words
+    ps = PorterStemmer()                                                   #Stemming   (love = loved, loving, lovable, lover, lovely, ...)
     review = [ps.stem(word) for word in review if not word in set(stopwords.words('english'))]   #Removing the words present in stopwords
-    review = " ".join(review)                                                            #Joining the individual words to a sentence)
+    review = " ".join(review)                                               #Joining the individual words to a sentence)
     corpus.append(review)                      
     
 #Creating the Bag of words model
